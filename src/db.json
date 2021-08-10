@@ -1,5 +1,5 @@
 {
-  "password": [
+  "credentials": [
     { "service": "EmailAccount", "name": "Leonie", "password": "xxx" }
   ]
 }
