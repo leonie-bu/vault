@@ -1,1 +1,3 @@
-console.log('Hello Sunshine!');
+import { readCredentials } from './utils/credentials';
+
+console.log(readCredentials);
