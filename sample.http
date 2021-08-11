@@ -4,7 +4,7 @@ GET http://localhost:3000/api/credentials
 ### Get single credentials
 GET http://localhost:3000/api/credentials/twitter
 
-### Add single credetials
+### Add single credentials
 POST  http://localhost:3000/api/credentials
 Content-Type: application/json
 
@@ -13,3 +13,6 @@ Content-Type: application/json
     "name": "Leonie",
     "password": "xxx"
 }
+
+### Delete single credential
+DELETE  http://localhost:3000/api/credentials/github
