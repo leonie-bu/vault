@@ -1,6 +1,14 @@
 {
   "credentials": [
     { "service": "emailAccount", "name": "Leonie", "password": "xxx" },
-    { "service": "twitter", "name": "Leonie", "password": "xxx" }
+    { "service": "twitter", "name": "Leonie", "password": "xxx" },
+    { "service": "facebook", "name": "Leonie", "password": "xxx" },
+    { "service": "instagram", "name": "Leonie", "password": "xxx" },
+    { "service": "instagram", "name": "Leonie", "password": "xxx" },
+    { "service": "icq", "name": "Leonie", "password": "xxx" },
+    { "service": "icq", "name": "Leonie", "password": "xxx" },
+    { "service": "github", "name": "Leonie", "password": "xxx" },
+    { "service": "github", "name": "Leonie", "password": "xxx" },
+    { "service": "github", "name": "Leonie", "password": "xxx" }
   ]
 }
