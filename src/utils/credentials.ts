@@ -28,5 +28,5 @@ export async function addCredential(credential: Credential): Promise<void> {
     credentials: newCredentials,
   };
   const newJSON = JSON.stringify(newDB);
-  return writeFile('./src/db.json', newJSON, 'utf-8');
+  await writeFile('./src/db.json', newJSON, 'utf-8');
 }
