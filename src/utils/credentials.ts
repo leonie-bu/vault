@@ -1,3 +1,4 @@
+import { writeFile } from 'fs/promises';
 import { readFile } from 'fs/promises';
 import { DB, Credential } from '../types';
 
@@ -18,4 +19,14 @@ export async function getCredential(service: string): Promise<Credential> {
     throw new Error(`No credential found for services: ${service}`);
   }
   return credential;
+}
+
+export async function addCredential(credential: Credential): Promise<void> {
+  const credentials = await readCredentials();
+  const newCredentials = [...credentials, credential];
+  const newDB: DB = {
+    credentials: newCredentials,
+  };
+  const newJSON = JSON.stringify(newDB);
+  return writeFile('./src/db.json', newJSON, 'utf-8');
 }
