@@ -1,0 +1,15 @@
+### Get all credentials
+GET http://localhost:3000/api/credentials
+
+### Get single credentials
+GET http://localhost:3000/api/credentials/twitter
+
+### Add single credetials
+POST  http://localhost:3000/api/credentials
+Content-Type: application/json
+
+{
+    "service": "facebook",
+    "name": "Leonie",
+    "password": "xxx"
+}
