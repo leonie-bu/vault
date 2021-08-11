@@ -1,6 +1,6 @@
 {
   "credentials": [
-    { "service": "EmailAccount", "name": "Leonie", "password": "xxx" },
-    { "service": "Twitter", "name": "Leonie", "password": "xxx" }
+    { "service": "emailAccount", "name": "Leonie", "password": "xxx" },
+    { "service": "twitter", "name": "Leonie", "password": "xxx" }
   ]
 }
