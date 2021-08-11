@@ -3,6 +3,7 @@ import {
   addCredential,
   getCredential,
   readCredentials,
+  deleteCredential,
 } from './utils/credentials';
 
 import type { Credential } from './types';
@@ -35,6 +36,17 @@ app.post('/api/credentials', async (request, response) => {
   const credential: Credential = request.body;
   await addCredential(credential);
   response.status(200).send(credential);
+});
+
+app.delete('/api/credentials/:service', async (request, response) => {
+  const { service } = request.params;
+  try {
+    await deleteCredential(service);
+    response.status(200).send(`${service} deleted`);
+  } catch (error) {
+    console.error(error);
+    response.status(404).send(`${service} was not deleted`);
+  }
 });
 
 app.get('/', (_request, response) => {
