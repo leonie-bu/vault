@@ -1,8 +1,7 @@
 import { writeFile } from 'fs/promises';
 import { readFile } from 'fs/promises';
 import { DB, Credential } from '../types';
-import CryptoJS from 'crypto-js';
-import { encryptCredential } from './crypto';
+import { encryptCredential, decryptCredential } from './crypto';
 
 export async function readCredentials(): Promise<Credential[]> {
   const response = await readFile('src/db.json', 'utf-8');
@@ -20,7 +19,8 @@ export async function getCredential(service: string): Promise<Credential> {
   if (!credential) {
     throw new Error(`No credential found for services: ${service}`);
   }
-  return credential;
+  const decryptedCredential = decryptCredential(credential);
+  return decryptedCredential;
 }
 
 export async function addCredential(credential: Credential): Promise<void> {
