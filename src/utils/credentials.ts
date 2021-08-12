@@ -28,7 +28,7 @@ export async function addCredential(credential: Credential): Promise<void> {
     credentials: newCredentials,
   };
   const newJSON = JSON.stringify(newDB);
-  await writeFile('./src/db.json', newJSON, 'utf-8');
+  await writeFile('src/db.json', newJSON, 'utf-8');
 }
 
 export async function deleteCredential(service: string): Promise<void> {
@@ -39,7 +39,7 @@ export async function deleteCredential(service: string): Promise<void> {
   const newDB: DB = {
     credentials: newCredentials,
   };
-  await writeFile('./src/db.json', JSON.stringify(newDB), 'utf-8');
+  await writeFile('src/db.json', JSON.stringify(newDB), 'utf-8');
 }
 
 export async function updateCredential(
