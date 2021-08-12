@@ -1,6 +1,8 @@
 import { writeFile } from 'fs/promises';
 import { readFile } from 'fs/promises';
 import { DB, Credential } from '../types';
+import CryptoJS from 'crypto-js';
+import { encryptCredential } from './crypto';
 
 export async function readCredentials(): Promise<Credential[]> {
   const response = await readFile('src/db.json', 'utf-8');
@@ -23,7 +25,7 @@ export async function getCredential(service: string): Promise<Credential> {
 
 export async function addCredential(credential: Credential): Promise<void> {
   const credentials = await readCredentials();
-  const newCredentials = [...credentials, credential];
+  const newCredentials = [...credentials, encryptCredential(credential)];
   const newDB: DB = {
     credentials: newCredentials,
   };
@@ -46,15 +48,10 @@ export async function updateCredential(
   service: string,
   credential: Credential
 ): Promise<void> {
-  // get all credentials
   const credentials = await readCredentials();
-
-  // modify one
   const filteredCredentials = credentials.filter(
     (credential) => credential.service !== service
   );
-
-  // overwrite DB
   const newDB: DB = {
     credentials: [...filteredCredentials, credential],
   };
