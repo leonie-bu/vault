@@ -1,3 +1,4 @@
+import { writeFile } from 'fs/promises';
 import { readFile } from 'fs/promises';
 import { DB, Credential } from '../types';
 
@@ -6,4 +7,57 @@ export async function readCredentials(): Promise<Credential[]> {
   const db: DB = JSON.parse(response);
   const credentials = db.credentials;
   return credentials;
+}
+
+export async function getCredential(service: string): Promise<Credential> {
+  const credentials = await readCredentials();
+  const credential = credentials.find(
+    (credential) => credential.service.toLowerCase() === service.toLowerCase()
+  );
+
+  if (!credential) {
+    throw new Error(`No credential found for services: ${service}`);
+  }
+  return credential;
+}
+
+export async function addCredential(credential: Credential): Promise<void> {
+  const credentials = await readCredentials();
+  const newCredentials = [...credentials, credential];
+  const newDB: DB = {
+    credentials: newCredentials,
+  };
+  const newJSON = JSON.stringify(newDB);
+  await writeFile('src/db.json', newJSON, 'utf-8');
+}
+
+export async function deleteCredential(service: string): Promise<void> {
+  const credentials = await readCredentials();
+  const newCredentials = credentials.filter(
+    (credential) => credential.service !== service
+  );
+  const newDB: DB = {
+    credentials: newCredentials,
+  };
+  await writeFile('src/db.json', JSON.stringify(newDB), 'utf-8');
+}
+
+export async function updateCredential(
+  service: string,
+  credential: Credential
+): Promise<void> {
+  // get all credentials
+  const credentials = await readCredentials();
+
+  // modify one
+  const filteredCredentials = credentials.filter(
+    (credential) => credential.service !== service
+  );
+
+  // overwrite DB
+  const newDB: DB = {
+    credentials: [...filteredCredentials, credential],
+  };
+  const stringifiedDB = JSON.stringify(newDB, null, 2);
+  await writeFile('src/db.json', stringifiedDB);
 }

@@ -1,0 +1,28 @@
+### Get all credentials
+GET http://localhost:3000/api/credentials
+
+### Get single credentials
+GET http://localhost:3000/api/credentials/twitter
+
+### Add single credentials
+POST  http://localhost:3000/api/credentials
+Content-Type: application/json
+
+{
+    "service": "github",
+    "name": "Leonie",
+    "password": "xxx"
+}
+
+### Delete single credential
+DELETE  http://localhost:3000/api/credentials/github
+
+### Replace existing credential
+PUT http://localhost:3000/api/credentials/icq
+Content-Type: application/json
+
+{
+    "service": "schulerVZ",
+    "name": "Leonie",
+    "password": "abc"
+}

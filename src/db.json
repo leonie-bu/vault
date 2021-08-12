@@ -1,5 +1,10 @@
 {
   "credentials": [
-    { "service": "EmailAccount", "name": "Leonie", "password": "xxx" }
+    { "service": "emailAccount", "name": "Leonie", "password": "xxx" },
+    { "service": "facebook", "name": "Leonie", "password": "xxx" },
+    { "service": "instagram", "name": "Leonie", "password": "xxx" },
+    { "service": "instagram", "name": "Leonie", "password": "xxx" },
+    { "service": "icq", "name": "Leonie", "password": "xxx" },
+    { "service": "icq", "name": "Leonie", "password": "xxx" }
   ]
 }
