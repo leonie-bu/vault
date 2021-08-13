@@ -1,6 +1,7 @@
 import { writeFile } from 'fs/promises';
 import { readFile } from 'fs/promises';
 import { DB, Credential } from '../types';
+import { encryptCredential, decryptCredential } from './crypto';
 
 export async function readCredentials(): Promise<Credential[]> {
   const response = await readFile('src/db.json', 'utf-8');
@@ -9,7 +10,10 @@ export async function readCredentials(): Promise<Credential[]> {
   return credentials;
 }
 
-export async function getCredential(service: string): Promise<Credential> {
+export async function getCredential(
+  service: string,
+  key: string
+): Promise<Credential> {
   const credentials = await readCredentials();
   const credential = credentials.find(
     (credential) => credential.service.toLowerCase() === service.toLowerCase()
@@ -18,12 +22,16 @@ export async function getCredential(service: string): Promise<Credential> {
   if (!credential) {
     throw new Error(`No credential found for services: ${service}`);
   }
-  return credential;
+  const decryptedCredential = decryptCredential(credential, key);
+  return decryptedCredential;
 }
 
-export async function addCredential(credential: Credential): Promise<void> {
+export async function addCredential(
+  credential: Credential,
+  key: string
+): Promise<void> {
   const credentials = await readCredentials();
-  const newCredentials = [...credentials, credential];
+  const newCredentials = [...credentials, encryptCredential(credential, key)];
   const newDB: DB = {
     credentials: newCredentials,
   };
@@ -44,19 +52,15 @@ export async function deleteCredential(service: string): Promise<void> {
 
 export async function updateCredential(
   service: string,
-  credential: Credential
+  credential: Credential,
+  key: string
 ): Promise<void> {
-  // get all credentials
   const credentials = await readCredentials();
-
-  // modify one
   const filteredCredentials = credentials.filter(
     (credential) => credential.service !== service
   );
-
-  // overwrite DB
   const newDB: DB = {
-    credentials: [...filteredCredentials, credential],
+    credentials: [...filteredCredentials, encryptCredential(credential, key)],
   };
   const stringifiedDB = JSON.stringify(newDB, null, 2);
   await writeFile('src/db.json', stringifiedDB);
