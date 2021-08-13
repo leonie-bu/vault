@@ -20,6 +20,3 @@ export function getCredentialCollection(): Collection<Credential> {
 // export function getDogCollection(): Collection<Dog> {
 //   return getCollection<Dog>('dogs')
 // }
-
-// generic get a collection
-// get specific collection
