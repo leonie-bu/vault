@@ -1,0 +1,15 @@
+.heading {
+  background-color: blueviolet;
+}
+
+.text {
+  background-color: cadetblue;
+}
+
+.container {
+  text-align: center;
+}
+
+.input {
+  border: dotted blue;
+}
