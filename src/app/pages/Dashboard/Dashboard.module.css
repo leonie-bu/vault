@@ -1,15 +1,7 @@
-.heading {
-  background-color: blueviolet;
-}
-
-.text {
-  background-color: cadetblue;
-}
-
 .container {
-  text-align: center;
-}
-
-.input {
-  border: dotted blue;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  height: 100vh;
+  background-color: rgb(148, 214, 226);
 }
