@@ -4,9 +4,9 @@ import styles from './Dashboard.module.css';
 export default function Dashboard(): JSX.Element {
   return (
     <main className={styles.container}>
-      <h1 className={styles.heading}>Vault</h1>
-      <p className={styles.text}>Find your passwords</p>
-      <input type="text" className={styles.input}></input>
+      <h1>Vault</h1>
+      <p>Find your passwords</p>
+      <input type="text"></input>
     </main>
   );
 }
