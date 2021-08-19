@@ -6,7 +6,7 @@ export default function Dashboard(): JSX.Element {
   return (
     <main className={styles.container}>
       <h1>Vault</h1>
-      <Link to="/Leonie">Hallo</Link>
+      <Link to="/password/:service">Pa</Link>
       <p>Find your passwords</p>
       <input type="text"></input>
     </main>
