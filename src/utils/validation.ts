@@ -1,4 +1,5 @@
 import { readFile } from 'fs/promises';
+import CryptoJS from 'crypto-js';
 
 export async function validateMasterpassword(
   masterpassword: string
