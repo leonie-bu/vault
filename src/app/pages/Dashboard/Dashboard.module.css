@@ -2,6 +2,8 @@
   display: grid;
   align-content: start;
   justify-items: center;
+  background-color: #ffdd32;
   height: 100vh;
-  background-color: rgb(148, 214, 226);
+  overflow: auto;
+  position: relative;
 }
