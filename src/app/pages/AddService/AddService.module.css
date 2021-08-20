@@ -1,0 +1,6 @@
+.container {
+  background-color: #ffdd32;
+  display: grid;
+  height: 100vh;
+  overflow: auto;
+}
