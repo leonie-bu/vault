@@ -13,8 +13,9 @@
   background-color: #3d0066;
   border: none;
   border-radius: 50px 0 50px 50px;
-  position: absolute;
+  position: fixed;
   right: 0;
+  top: 0;
   text-decoration: none;
   padding: 10px;
   display: flex;
