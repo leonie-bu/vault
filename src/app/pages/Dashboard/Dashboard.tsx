@@ -28,12 +28,17 @@ export default function Dashboard(): JSX.Element {
     <main className={styles.container}>
       <h1>Vault</h1>
       <p>Find your passwords</p>
-      <Link to="/password/Leonie">Service</Link>
+      <Link to="/password/test">Service</Link>
       <input
         type="Password"
         value={masterPassword}
         onChange={(event) => setmasterPassword(event.target.value)}
       />
+
+      <Link to="/add" className={styles.addButton}>
+        Add a Service
+      </Link>
+
       {credentials.length !== 0 &&
         credentials.map((credential) => (
           <CredentialCard credentialData={credential} />
