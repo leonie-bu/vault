@@ -27,15 +27,10 @@ export default function AddService(): JSX.Element {
   return (
     <main className={styles.container}>
       <h1>Vault</h1>
-      <h3>
-        Fill in the following fields to save your passwords for a certain
-        service
-      </h3>
-      <form
-        className={styles.container}
-        onSubmit={(event) => handleSubmit(event)}
-      >
+      <h3>Fill in the following fields</h3>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <input
+          className={styles.input}
           placeholder={'Enter service'}
           type="text"
           value={service}
@@ -43,13 +38,15 @@ export default function AddService(): JSX.Element {
           required
         />
         <input
-          placeholder={'Enter name or email address'}
+          className={styles.input}
+          placeholder={'Enter name'}
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
           required
         />
         <input
+          className={styles.input}
           placeholder={'Enter password'}
           type="password"
           value={password}
@@ -57,6 +54,7 @@ export default function AddService(): JSX.Element {
           required
         />
         <input
+          className={styles.input}
           placeholder={'Enter masterpassword'}
           type="password"
           value={masterpassword}
