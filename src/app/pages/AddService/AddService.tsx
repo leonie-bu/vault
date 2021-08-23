@@ -28,7 +28,7 @@ export default function AddService(): JSX.Element {
     <main className={styles.container}>
       <h1>Vault</h1>
       <h3>Fill in the following fields</h3>
-      <form onSubmit={(event) => handleSubmit(event)}>
+      <form className={styles.form} onSubmit={(event) => handleSubmit(event)}>
         <input
           className={styles.input}
           placeholder={'Enter service'}
