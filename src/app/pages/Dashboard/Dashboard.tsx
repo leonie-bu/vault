@@ -39,6 +39,8 @@ export default function Dashboard(): JSX.Element {
         Add a Service
       </Link>
 
+      <Link to="/search">Search for a Service</Link>
+
       {credentials.length !== 0 &&
         credentials.map((credential) => (
           <CredentialCard credentialData={credential} />

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './AddService.module.css';
+import styles from './Add.module.css';
 
 export default function AddService(): JSX.Element {
   const [service, setService] = useState<string>('');
