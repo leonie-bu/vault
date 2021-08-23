@@ -1,21 +1,22 @@
 ### Get all credentials
-GET http://localhost:3000/api/credentials
+GET http://localhost:3001/api/credentials
 Authorization: {{$dotenv MASTERPASSWORD}}
 
 ### Get single credentials
 GET http://localhost:3000/api/credentials/twitter
-Authorization: ${{$dotenv MASTERPASSWORD}} 
+Authorization: {{$dotenv MASTERPASSWORD}} 
 
 ### Add single credentials
-POST  http://localhost:3000/api/credentials
+POST  http://localhost:3001/api/credentials
 Content-Type: application/json
-Authorization: : ${{$dotenv MASTERPASSWORD}} 
+Authorization: {{$dotenv MASTERPASSWORD}} 
 
 {
-    "service": "github",
+    "service": "facebook",
     "name": "Leonie",
     "password": "xxx"
 }
+
 
 ### Delete single credential
 DELETE  http://localhost:3000/api/credentials/github
@@ -23,7 +24,7 @@ DELETE  http://localhost:3000/api/credentials/github
 ### Replace existing credential
 PUT http://localhost:3000/api/credentials/icq
 Content-Type: application/json
-Authorization: ${{$dotenv MASTERPASSWORD}} 
+Authorization: {{$dotenv MASTERPASSWORD}} 
 
 {
     "service": "schulerVZ",

@@ -1,0 +1,28 @@
+.container {
+  background-color: #ffdd32;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  height: 100vh;
+  overflow: auto;
+}
+
+.form {
+  display: grid;
+}
+.input {
+  border: #4cd7f6 solid 2px;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.submit {
+  background-color: #4cd7f6;
+  border: none;
+  width: 50%;
+}
+
+h1,
+h3 {
+  color: #0a2aff;
+}

@@ -2,6 +2,23 @@
   display: grid;
   align-content: start;
   justify-items: center;
+  background-color: #ffdd32;
   height: 100vh;
-  background-color: rgb(148, 214, 226);
+  overflow: auto;
+  position: relative;
+}
+
+.addButton {
+  color: #d58efc;
+  background-color: #3d0066;
+  border: none;
+  border-radius: 50px 0 50px 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 80px;
 }
